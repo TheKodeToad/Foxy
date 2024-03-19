@@ -1,6 +1,8 @@
 import "dotenv/config";
 
 import express, { NextFunction } from "express";
+import https from "https";
+import fs from "fs";
 import config from "./config";
 import nacl from "tweetnacl";
 
@@ -103,7 +105,16 @@ async function main() {
 		}
 	});
 
-	server.listen(config.port);
+
+	if (config.use_https) {
+		const https_server = https.createServer({
+			key: fs.readFileSync("key.pem"),
+			cert: fs.readFileSync("cert.pem")
+		}, server);
+		https_server.listen(config.port);
+	} else
+		server.listen(config.port);
+
 	console.log(`Listening on ${config.port}`);
 }
 
