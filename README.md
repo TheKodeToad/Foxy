@@ -1,6 +1,6 @@
 # Foxy
 
-Discord user app to send fox images with [randomfox](randomfox.ca)! I made this for fun and to learn how this new feature works.
+Discord user app to send fox images with [randomfox](https://randomfox.ca)! I made this for fun and to learn how this new feature works.
 
 ## Usage
 
